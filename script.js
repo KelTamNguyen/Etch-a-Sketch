@@ -3,17 +3,16 @@ console.log('The script is running');
 const DEFAULT_COLOR = '#333333';
 const DEFAULT_SIZE = 16;
 const DEFAULT_MODE = 'color';
-const DEFAULT_BG_MODE = 'light';
+const DEFAULT_CANVAS_MODE = 'light';
 var currentColor = DEFAULT_COLOR;
 var currentSize = DEFAULT_SIZE;
 var currentColoringMode = DEFAULT_MODE;
-var currentBackgroundMode = DEFAULT_BG_MODE;
 
 var grid = document.querySelector('#grid');
 var colorInput = document.querySelector('#color-input');
 var resetButton = document.getElementById('reset');
-var darkModeButton = document.getElementById('dark-mode');
-var rainbowButton = document.getElementById('rainbow')
+var rainbowButton = document.getElementById('rainbow');
+var colorButton = document.getElementById('color');
 var modalBg = document.querySelector('.modal-bg');
 var modalClose = document.querySelector('.modal-close');
 var sizeInput = document.querySelector('#size');
@@ -24,17 +23,20 @@ colorInput.addEventListener('input', (e) => {
 });
 applyBtn.addEventListener('click', () => {
     if (sizeInput.value !== null) {
-        setNewSize(sizeInput.value);
+        if (sizeInput.value <= 100) {
+            setNewSize(sizeInput.value);
+        } 
+        else if (sizeInput.value > 100) {
+            setNewSize(100);
+        }
         setUpGrid(sizeInput.value);
         closeModal();
     }
 });
 modalClose.addEventListener('click', closeModal);
 resetButton.addEventListener('click', clearGrid);
-darkModeButton.addEventListener('click', () => {
-    console.log('Background: Dark mode');
-});
 rainbowButton.addEventListener('click', () => setColoringMode('rainbow'));
+colorButton.addEventListener('click', () => setColoringMode('color'))
 
 function setNewSize(size) {
     currentSize = size;
@@ -42,11 +44,18 @@ function setNewSize(size) {
 
 function setColoringMode(coloringMode) {
     currentColoringMode = coloringMode;
-    console.log(currentColoringMode);
-}
-
-function toggleBackground() {
-    
+    if (coloringMode === 'rainbow') {
+        rainbowButton.classList.add('active-button');
+        if (colorButton.classList.contains('active-button')) {
+            colorButton.classList.remove('active-button');
+        }
+    }
+    else if (coloringMode === 'color') {
+        colorButton.classList.add('active-button');
+        if (rainbowButton.classList.contains('active-button')) {
+            rainbowButton.classList.remove('active-button');
+        }
+    }
 }
 
 function clearGrid() {
@@ -71,12 +80,7 @@ function setUpGrid(size) {
 
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
-        if (currentBackgroundMode === 'light') {
-            square.style.backgroundColor = 'white';
-        } else if (currentBackgroundMode === 'dark') {
-            square.style.backgroundColor = 'white';
-        }
-        // square.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+        square.style.backgroundColor = 'rgb(216, 216, 216)';
         square.addEventListener('mouseover', colorSquare)
         grid.appendChild(square);
     }
