@@ -1,8 +1,32 @@
+:root {
+    --primary-red: #e10630;
+    --primary-yellow: #f8ce61;
+    --primary-black: #151216;
+    --primary-white: #fbf9fb;
+}
+
+body {
+    background-color: var(--primary-red);
+}
+
 #grid {
     display: grid;
     height: 500px;
     width: 500px;
+    border: 7px solid var(--primary-yellow);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.title {
+    font-family: 'Lobster', cursive;
+    color: var(--primary-yellow);
+    font-size: 3.5em;
+    text-align: center;
+}
+
+footer {
+    color: var(--primary-yellow);
+    font-family: 'Lobster', cursive;
 }
 
 .modal {
