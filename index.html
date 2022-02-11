@@ -7,14 +7,24 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="drawing-board.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Etch-a-Sketch</h1>
-    <input type="color">
+    <input type="color" id="color-input" value="#333333">
     <div id="grid"></div>
+    <button class="reset-button" id="reset">reset</button>
     <footer>
         <a href="https://www.flaticon.com/free-icons/draw" title="draw icons">Draw icons created by Eucalyp - Flaticon</a>
     </footer>
+    <div class="modal-bg">
+        <div class="modal">
+            <h2>How big a square do you want?</h2>
+            <input type="text" id="size">
+            <button id="apply">apply</button>
+            <span class="modal-close"><i class="fas fa-times"></i></span>
+        </div>
+    </div>
 </body>
 </html>
