@@ -43,7 +43,6 @@ function setColoringMode(coloringMode) {
 function clearGrid() {
     grid.innerHTML = '';
     initializeGrid(currentSize);
-    console.log(currentSize);
     openModal();
 }
 
@@ -53,7 +52,6 @@ function openModal() {
 
 function closeModal() {
     modalBg.classList.remove('bg-active');
-    sizeInput.value= "";
 }
 
 function initializeGrid(size) {

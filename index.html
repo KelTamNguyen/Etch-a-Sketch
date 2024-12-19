@@ -14,9 +14,11 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="title">Etch-a-Sketch</h1>
     <div class="container">
-        <div id="grid"></div>
+        <div>
+            <h1 class="title">Etch-a-Sketch</h1>
+            <div id="grid"></div>
+        </div>
         <div id="button-group" class="button-group">
             <input type="color" id="color-input" value="#333333">
             <button id="rainbow" class="button-30">rainbow</button>
@@ -32,7 +34,7 @@
     <div class="modal-bg">
         <div class="modal">
             <h2>Choose grid size (max 100)</h2>
-            <input type="number" id="size" min="1" max="100">
+            <input type="number" id="size" min="1" max="100" value="16">
             <button class="button-30" id="apply">apply</button>
             <span class="modal-close"><i class="fas fa-times"></i></span>
         </div>

@@ -5,7 +5,18 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     background-color: var(--primary-red);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 #grid {
@@ -14,6 +25,7 @@ body {
     width: 500px;
     border: 7px solid var(--primary-yellow);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgb(216, 216, 216);
 }
 
 .title {
@@ -21,18 +33,12 @@ body {
     color: var(--primary-yellow);
     font-size: 3.5em;
     text-align: center;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    gap: 12px;
+    margin: 0;
 }
 
 .button-group {
     display: flex;
+    /* flex-direction: column; */
     align-items: center;
     gap: 8px;
 }
@@ -83,8 +89,9 @@ body {
   }
 
 .active-button {
-    background-color: #36395A;
-    color: #FCFCFD;
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: rgb(51, 51, 51);
 }
 
 footer {
@@ -94,12 +101,12 @@ footer {
     padding: 3vh
 }
 
-.contact-icon {
-    color: var(--primary-yellow);
+footer a {
+    color: white;
 }
 
-.contact-icon:hover {
-    color: var(--primary-dark-yellow);
+footer a:hover {
+    color: var(--primary-yellow);
 }
 
 .modal {
